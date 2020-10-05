@@ -1,0 +1,14 @@
+
+service: snet-functions
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  appHeaders:
+    warmup: true
+    handler: appHeaders.appHeaders
+    role: ${file(./config.${self:provider.stage}.json):ROLE}
