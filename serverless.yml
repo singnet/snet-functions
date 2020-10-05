@@ -8,7 +8,7 @@ provider:
   runtime: nodejs12.x
 
 functions:
-  service-name: handler
+  appHeaders:
     warmup: true
-    handler: handler
+    handler: appHeaders.appHeaders
     role: ${file(./config.${self:provider.stage}.json):ROLE}
