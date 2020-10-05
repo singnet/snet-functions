@@ -8,3 +8,7 @@ provider:
   runtime: nodejs12.x
 
 functions:
+  service-name: handler
+    warmup: true
+    handler: handler
+    role: ${file(./config.${self:provider.stage}.json):ROLE}
